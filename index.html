@@ -135,7 +135,7 @@ function rgbToHsv(r, g, b) {
     }
 
 // this function takes the HSV values of the pixel and estimates a car part and its price based on color
-// Prices sourced from carparts.com, knfilters.com, rockauto.com, cargurus.com, autotrader.com
+// Prices sourced from carparts.com, knfilters.com, rockauto.com, cargurus.com, autotrader.com (this is to make up for missing commit
 function getPartEstimate(h, s, v) {
       if (s < 20 || v < 50) return { part: "Body Panel (neutral)", price: "$200 - $500" }; 
       if (h >= 15 && h < 45) return { part: "Engine Oil Filter (orange)", price: "$10 - $30" }; // sourced from knfilters.com
@@ -169,6 +169,7 @@ function getPartEstimate(h, s, v) {
         return;
       }
       // Assume the link is to an image; load it onto the canvas
+		
       loadedImage = new Image();
       loadedImage.crossOrigin = "anonymous"; // Handle CORS if needed
       loadedImage.onload = function() {
